@@ -1,0 +1,48 @@
+{
+  "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
+  "appId": "com.operation.ironclad",
+  "productName": "Operation Ironclad",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*",
+    "!dist/operation-ironclad.html",
+    "electron/**/*",
+    "package.json"
+  ],
+  "asar": true,
+  "win": {
+    "target": [
+      {
+        "target": "portable",
+        "arch": ["x64"]
+      },
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ],
+    "artifactName": "Operation-Ironclad-${version}-win-${arch}-${target}.${ext}"
+  },
+  "mac": {
+    "category": "public.app-category.action-games",
+    "target": [
+      {
+        "target": "dmg",
+        "arch": ["x64", "arm64"]
+      }
+    ],
+    "artifactName": "Operation-Ironclad-${version}-mac-${arch}.${ext}"
+  },
+  "linux": {
+    "category": "Game",
+    "target": [
+      {
+        "target": "AppImage",
+        "arch": ["x64"]
+      }
+    ],
+    "artifactName": "Operation-Ironclad-${version}-linux-${arch}.${ext}"
+  }
+}
